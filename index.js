@@ -3,12 +3,18 @@ const answers = document.querySelectorAll(".answer");
 
 for (let i = 0; i < questions.length; i++) {
   questions[i].addEventListener("click", () => {
-    //hiding other answers
-    for (let k = 0; k < answers.length; k++) {
-      answers[k].style.display = "none";
+    // answer display
+    if (answers[i].style.display == "block") {
+      answers[i].style.display = "none";
+    } else {
+      answers[i].style.display = "block";
     }
 
-    //show answer on click
-    answers[i].style.display = "block";
+    // Hiding other answers
+    for (let k = 0; k < answers.length; k++) {
+      if (k != i) {
+        answers[k].style.display = "none";
+      }
+    }
   });
 }
